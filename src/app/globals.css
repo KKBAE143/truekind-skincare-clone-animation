@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Shadcn/UI colors - Light Theme with New Palette */
+  --color-background: #ffffff;
+  --color-foreground: #2D2D2D; /* Primary Text */
+
+  --color-card: #ffffff;
+  --color-card-foreground: #2D2D2D;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #2D2D2D;
+
+  --color-primary: #FF7034; /* Burnt Orange */
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #FFB89A; /* Melon */
+  --color-secondary-foreground: #2D2D2D;
+
+  --color-muted: #7A7A7A; /* Muted Gray */
+  --color-muted-foreground: #7A7A7A;
+
+  --color-accent: #FF9467; /* Atomic Tangerine */
+  --color-accent-foreground: #2D2D2D;
+
+  --color-destructive: #D4847A; /* Coral Red */
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: #E5E5E5; /* Border Gray */
+  --color-input: #E5E5E5;
+  --color-ring: #FF7034;
+
+  --color-chart-1: #FF7034;
+  --color-chart-2: #FF9467;
+  --color-chart-3: #FFB89A;
+  --color-chart-4: #FFDCCD;
+  --color-chart-5: #e74c3c;
+
+  --color-sidebar: #f7f7f7;
+  --color-sidebar-foreground: #404040;
+  --color-sidebar-primary: #FF7034;
+  --color-sidebar-primary-foreground: #fafafa;
+  --color-sidebar-accent: #f0f0f0;
+  --color-sidebar-accent-foreground: #1a1a1a;
+  --color-sidebar-border: #d4d4d8;
+  --color-sidebar-ring: #FF7034;
+
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-md: 0.625rem; /* 10px */
+  --radius-sm: 0.5rem; /* 8px */
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  /* Additional Design System Colors - New Palette */
+  --color-burnt-orange: #FF7034;
+  --color-atomic-tangerine: #FF9467;
+  --color-melon: #FFB89A;
+  --color-misty-rose: #FFDCCD;
+  --color-warm-beige: #FFF5F0;
+  --color-light-pink-beige: #FFEEE6;
+  --color-accent-pink: #FFB89A;
+  --color-purple-gradient-start: #FF9467;
+  --color-purple-gradient-end: #FFB89A;
+  --color-coral-red: #FF7034;
+  --color-golden-beige: #FFEEE6;
+  --color-muted-gray: #7A7A7A;
+  --color-border-gray: #E5E5E5;
+  --color-dark-charcoal: #2D2D2D;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+
+  /* Typography */
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
+  --font-hero-headline: var(--font-display);
+  --font-section-headline: var(--font-display);
+  --font-subheading: var(--font-body);
+  --font-button: var(--font-body);
+  --font-caption: var(--font-body);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #e5e5e5;
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --card: var(--color-card);
+    --card-foreground: var(--color-card-foreground);
+    --popover: var(--color-popover);
+    --popover-foreground: var(--color-popover-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-primary-foreground);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-secondary-foreground);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-muted-foreground);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-accent-foreground);
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-destructive-foreground);
+    --border: var(--color-border);
+    --input: var(--color-input);
+    --ring: var(--color-ring);
+    --chart-1: var(--color-chart-1);
+    --chart-2: var(--color-chart-2);
+    --chart-3: var(--color-chart-3);
+    --chart-4: var(--color-chart-4);
+    --chart-5: var(--color-chart-5);
+    --radius: var(--radius-lg);
+    --sidebar-background: var(--color-sidebar);
+    --sidebar-foreground: var(--color-sidebar-foreground);
+    --sidebar-primary: var(--color-sidebar-primary);
+    --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+    --sidebar-accent: var(--color-sidebar-accent);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+    --sidebar-border: var(--color-sidebar-border);
+    --sidebar-ring: var(--color-sidebar-ring);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-dark-charcoal);
+  }
+
+  h1 {
+    font-size: 72px; /* Hero Headlines */
+    font-weight: 300; /* Light weight */
+  }
+
+  h2 {
+    font-size: 48px; /* Section Headlines */
+    font-weight: 400; /* Regular weight */
+  }
+
+  h3 {
+    font-size: 32px; /* Subheadings */
+    font-weight: 500; /* Medium weight */
+  }
+
+  p {
+    font-size: 18px; /* Body Text */
+    font-weight: 400; /* Regular weight */
+  }
+
+  button, .button {
+    font-size: 16px; /* Button Text */
+    font-weight: 500; /* Medium weight */
+    letter-spacing: 0.05em;
+  }
+
+  .caption {
+    font-size: 14px; /* Caption Text */
+    font-weight: 300; /* Light weight */
+  }
+
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 64px;
+    }
+    h2 {
+      font-size: 40px;
+    }
+    h3 {
+      font-size: 28px;
+    }
+    p {
+      font-size: 16px;
+    }
+    button, .button {
+      font-size: 14px;
+    }
+    .caption {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 48px;
+    }
+    h2 {
+      font-size: 32px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
